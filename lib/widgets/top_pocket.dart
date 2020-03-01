@@ -50,6 +50,20 @@ class _TopPocketState extends State<TopPocket> {
           ),
         ),
 
+        ClipPath(
+          clipper: TopLayerPocket03 (),
+          child: Container(
+            width: double.infinity,
+            decoration: new BoxDecoration(
+              color: Color(0XFFA51A17),
+              borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(20.0),
+                topRight: const Radius.circular(20.0),
+              ),
+            ),
+          ),
+        ),
+
         Positioned(
           top: size.height*0.12,
           left: size.width*0.18,
@@ -97,29 +111,6 @@ class _TopPocketState extends State<TopPocket> {
             painter: StatusGreen(),
           ),
         ),
-
-//        Positioned(
-//          top: size.height*0.05,
-//          left: size.width*0.1,
-//          child: Container(
-//              height: 50,
-//              width: 50,
-//              decoration: BoxDecoration(
-//                borderRadius: BorderRadius.circular(60),
-//                border: Border.all(
-//                  width: 5,
-//                  color: Color(0XFFABAAA8),
-//                ),
-//                boxShadow: [
-//                  BoxShadow(
-//                    color: Color(0XFF4182C4),
-//                    //blurRadius: 10,
-//                    //offset: Offset(0, 0),
-//                  )
-//                ],
-//              ),
-//            ),
-//        ),
       ],
     );
   }
@@ -170,19 +161,34 @@ class TopLayerPocket02 extends CustomClipper<Path> {
   }
 }
 
+class TopLayerPocket03 extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(size.width*0.91, size.height*0.79);
+    path.lineTo(size.width*0.91, size.height*0.82);
+    path.lineTo(size.width, size.height*0.82);
+    path.lineTo(size.width, size.height*0.79);
+    path.lineTo(size.width*0.91, size.height*0.79);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    // TODO: implement shouldReclip
+    throw UnimplementedError();
+  }
+}
+
 class NotifyLayer00 extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-    // Create a rectangle with size and width same as the canvas
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    // draw the rectangle using the paint
     canvas.drawRect(rect, paint);
-    // set the color property of the paint
     paint.color = Color(0XFF9CD3F2);
-    // center of the canvas is (x,y) => (width/2, height/2)
     var center = Offset(size.width / 2, size.height / 2);
-    // draw the circle with center having radius 75.0
     canvas.drawCircle(center, 8.0, paint);
   }
 
@@ -194,15 +200,10 @@ class NotifyLayer01 extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-    // Create a rectangle with size and width same as the canvas
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    // draw the rectangle using the paint
     canvas.drawRect(rect, paint);
-    // set the color property of the paint
     paint.color = Color(0XFF4182C4);
-    // center of the canvas is (x,y) => (width/2, height/2)
     var center = Offset(size.width / 2, size.height / 2);
-    // draw the circle with center having radius 75.0
     canvas.drawCircle(center, 40.0, paint);
   }
 
@@ -214,15 +215,10 @@ class NotifyLayer02 extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-    // Create a rectangle with size and width same as the canvas
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    // draw the rectangle using the paint
     canvas.drawRect(rect, paint);
-    // set the color property of the paint
     paint.color = Color(0XFFABAAA8);
-    // center of the canvas is (x,y) => (width/2, height/2)
     var center = Offset(size.width / 2, size.height / 2);
-    // draw the circle with center having radius 75.0
     canvas.drawCircle(center, 50.0, paint);
   }
 
@@ -234,15 +230,10 @@ class StatusRed extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-    // Create a rectangle with size and width same as the canvas
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    // draw the rectangle using the paint
     canvas.drawRect(rect, paint);
-    // set the color property of the paint
     paint.color = Color(0XFFE81736);
-    // center of the canvas is (x,y) => (width/2, height/2)
     var center = Offset(size.width / 2, size.height / 2);
-    // draw the circle with center having radius 75.0
     canvas.drawCircle(center, 8.0, paint);
   }
 
@@ -254,15 +245,10 @@ class StatusYellow extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-    // Create a rectangle with size and width same as the canvas
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    // draw the rectangle using the paint
     canvas.drawRect(rect, paint);
-    // set the color property of the paint
     paint.color = Color(0XFFFFF29A);
-    // center of the canvas is (x,y) => (width/2, height/2)
     var center = Offset(size.width / 2, size.height / 2);
-    // draw the circle with center having radius 75.0
     canvas.drawCircle(center, 8.0, paint);
   }
 
@@ -274,15 +260,10 @@ class StatusGreen extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-    // Create a rectangle with size and width same as the canvas
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    // draw the rectangle using the paint
     canvas.drawRect(rect, paint);
-    // set the color property of the paint
     paint.color = Color(0XFF4E9656);
-    // center of the canvas is (x,y) => (width/2, height/2)
     var center = Offset(size.width / 2, size.height / 2);
-    // draw the circle with center having radius 75.0
     canvas.drawCircle(center, 8.0, paint);
   }
 
