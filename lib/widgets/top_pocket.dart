@@ -11,17 +11,6 @@ class _TopPocketState extends State<TopPocket> {
     var size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Container(
-          width: double.infinity,
-          decoration: new BoxDecoration(
-            color: Color(0XFFE51D20),
-            borderRadius: new BorderRadius.only(
-              topLeft: const Radius.circular(20.0),
-              topRight: const Radius.circular(20.0),
-            ),
-          ),
-        ),
-
         ClipPath(
           clipper: TopLayerPocket02 (),
           child: Container(
@@ -119,18 +108,17 @@ class _TopPocketState extends State<TopPocket> {
 class TopLayerPocket01 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height*0.8);
-    path.quadraticBezierTo(size.width*0.005, size.height*0.9, size.width*0.06, size.height*0.92);
-    path.lineTo(size.width*0.41, size.height*0.92);
-    path.lineTo(size.width*0.55, size.height*0.50); //54 50
-    path.quadraticBezierTo(size.width*0.58, size.height*0.40, size.width*0.61, size.height*0.40);
-    path.lineTo(size.width*0.93, size.height*0.40);
-    path.lineTo(size.width*0.91, size.height*0.50);
-    path.lineTo(size.width*0.91, size.height);
-    path.lineTo(size.width, size.height);
-
-    path.lineTo(size.width, 0);
+    var path = Path()
+    ..lineTo(0, size.height*0.8)
+    ..quadraticBezierTo(size.width*0.005, size.height*0.9, size.width*0.06, size.height*0.92)
+    ..lineTo(size.width*0.41, size.height*0.92)
+    ..lineTo(size.width*0.55, size.height*0.50) //54 50
+    ..quadraticBezierTo(size.width*0.58, size.height*0.40, size.width*0.61, size.height*0.40)
+    ..lineTo(size.width*0.93, size.height*0.40)
+    ..lineTo(size.width*0.91, size.height*0.50)
+    ..lineTo(size.width*0.91, size.height)
+    ..lineTo(size.width, size.height)
+    ..lineTo(size.width, 0);
     path.close();
     return path;
   }
@@ -142,14 +130,14 @@ class TopLayerPocket01 extends CustomClipper<Path> {
 class TopLayerPocket02 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height);
-    path.lineTo(size.width*0.43, size.height);
-    path.lineTo(size.width*0.60, size.height/2);
-    path.lineTo(size.width*0.91, size.height/2);
-    path.lineTo(size.width*0.91, size.height);
-    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, 0);
+    var path = Path()
+    ..lineTo(0, size.height)
+    ..lineTo(size.width*0.43, size.height)
+    ..lineTo(size.width*0.60, size.height/2)
+    ..lineTo(size.width*0.91, size.height/2)
+    ..lineTo(size.width*0.91, size.height)
+    ..lineTo(size.width, size.height)
+    ..lineTo(size.width, 0);
     path.close();
     return path;
   }
@@ -164,12 +152,12 @@ class TopLayerPocket02 extends CustomClipper<Path> {
 class TopLayerPocket03 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(size.width*0.91, size.height*0.79);
-    path.lineTo(size.width*0.91, size.height*0.82);
-    path.lineTo(size.width, size.height*0.82);
-    path.lineTo(size.width, size.height*0.79);
-    path.lineTo(size.width*0.91, size.height*0.79);
+    var path = Path()
+    ..moveTo(size.width*0.91, size.height*0.79)
+    ..lineTo(size.width*0.91, size.height*0.82)
+    ..lineTo(size.width, size.height*0.82)
+    ..lineTo(size.width, size.height*0.79)
+    ..lineTo(size.width*0.91, size.height*0.79);
     path.close();
     return path;
   }

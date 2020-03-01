@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class TelaPocket extends StatefulWidget {
-  TelaPocket({
+class ScreenPocket extends StatefulWidget {
+  ScreenPocket({
     Key key,
     this.img
   }):super(key:key);
   final Widget img;
   @override
-  _TelaPocketState createState() => _TelaPocketState();
+  _ScreenPocketState createState() => _ScreenPocketState();
 }
 
-class _TelaPocketState extends State<TelaPocket> {
+class _ScreenPocketState extends State<ScreenPocket> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -136,7 +136,7 @@ class Background extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var pathTela = Path();
-    pathTela.lineTo(size.width*0.91, 0);
+    pathTela.moveTo(size.width*0.91, 0);
     pathTela.lineTo(size.width*0.91, size.height);
     pathTela.lineTo(size.width, size.height);
     pathTela.lineTo(size.width, 0);
@@ -156,17 +156,16 @@ class Background extends CustomClipper<Path> {
 class ScreenBorder extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var pathTela = Path();
-    pathTela.lineTo(size.width * 0.114, size.height*0.154);
-    pathTela.lineTo(size.width * 0.114, size.height*0.818);
-    pathTela.lineTo(size.width * 0.208, size.height*0.953);
-    pathTela.lineTo(size.width * 0.809, size.height*0.953);
-    pathTela.quadraticBezierTo(size.width*0.83, size.height*0.944, size.width*0.835, size.height*0.912);
-    //arred 0,827 -> 0,83 & 0,941 -> 0,944
-    pathTela.lineTo(size.width * 0.835, size.height*0.154);
-    pathTela.quadraticBezierTo(size.width*0.83, size.height*0.122, size.width*0.809, size.height*0.113);
-    pathTela.lineTo(size.width * 0.140, size.height*0.113);
-    pathTela.quadraticBezierTo(size.width*0.119, size.height*0.122, size.width*0.114, size.height*0.154);
+    var pathTela = Path()
+    ..moveTo(size.width * 0.114, size.height*0.154)
+    ..lineTo(size.width * 0.114, size.height*0.818)
+    ..lineTo(size.width * 0.208, size.height*0.953)
+    ..lineTo(size.width * 0.809, size.height*0.953)
+    ..quadraticBezierTo(size.width*0.83, size.height*0.944, size.width*0.835, size.height*0.912)
+    ..lineTo(size.width * 0.835, size.height*0.154)
+    ..quadraticBezierTo(size.width*0.83, size.height*0.122, size.width*0.809, size.height*0.113)
+    ..lineTo(size.width * 0.140, size.height*0.113)
+    ..quadraticBezierTo(size.width*0.119, size.height*0.122, size.width*0.114, size.height*0.154);
     pathTela.close();
     return pathTela;
   }
@@ -180,16 +179,16 @@ class ScreenBorder extends CustomClipper<Path> {
 class Screen extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var pathScreen = Path();
-    pathScreen.lineTo(size.width * 0.222, size.height*0.283);
-    pathScreen.lineTo(size.width * 0.222, size.height*0.720);
-    pathScreen.quadraticBezierTo(size.width*0.222, size.height*0.767, size.width*0.255, size.height*0.767);
-    pathScreen.lineTo(size.width * 0.695, size.height*0.767);
-    pathScreen.quadraticBezierTo(size.width*0.729, size.height*0.767, size.width*0.729, size.height*0.720);
-    pathScreen.lineTo(size.width * 0.729, size.height*0.283);
-    pathScreen.quadraticBezierTo(size.width*0.729, size.height*0.237, size.width*0.695, size.height*0.237);
-    pathScreen.lineTo(size.width * 0.255, size.height*0.237);
-    pathScreen.quadraticBezierTo(size.width*0.222, size.height*0.237, size.width*0.222, size.height*0.283);
+    var pathScreen = Path()
+    ..moveTo(size.width * 0.222, size.height*0.283)
+    ..lineTo(size.width * 0.222, size.height*0.720)
+    ..quadraticBezierTo(size.width*0.222, size.height*0.767, size.width*0.255, size.height*0.767)
+    ..lineTo(size.width * 0.695, size.height*0.767)
+    ..quadraticBezierTo(size.width*0.729, size.height*0.767, size.width*0.729, size.height*0.720)
+    ..lineTo(size.width * 0.729, size.height*0.283)
+    ..quadraticBezierTo(size.width*0.729, size.height*0.237, size.width*0.695, size.height*0.237)
+    ..lineTo(size.width * 0.255, size.height*0.237)
+    ..quadraticBezierTo(size.width*0.222, size.height*0.237, size.width*0.222, size.height*0.283);
     pathScreen.close();
     return pathScreen;
   }
@@ -203,12 +202,12 @@ class Screen extends CustomClipper<Path> {
 class Speaker01 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var pathScreen = Path();
-    pathScreen.lineTo(size.width * 0.645, size.height*0.814);
-    pathScreen.lineTo(size.width * 0.727, size.height*0.814);
-    pathScreen.quadraticBezierTo(size.width*0.730, size.height*0.810, size.width*0.727, size.height*0.806);
-    pathScreen.lineTo(size.width * 0.645, size.height*0.806);
-    pathScreen.quadraticBezierTo(size.width*0.642, size.height*0.810, size.width*0.645, size.height*0.814);
+    var pathScreen = Path()
+    ..moveTo(size.width * 0.645, size.height*0.814)
+    ..lineTo(size.width * 0.727, size.height*0.814)
+    ..quadraticBezierTo(size.width*0.730, size.height*0.810, size.width*0.727, size.height*0.806)
+    ..lineTo(size.width * 0.645, size.height*0.806)
+    ..quadraticBezierTo(size.width*0.642, size.height*0.810, size.width*0.645, size.height*0.814);
     pathScreen.close();
     return pathScreen;
   }
@@ -222,18 +221,12 @@ class Speaker01 extends CustomClipper<Path> {
 class Speaker02 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var pathScreen = Path();
-
-    //727 - 645 = 82 comprimento
-    //
-
-    //curva aumenta em 3 o X
-
-    pathScreen.lineTo(size.width * 0.645, size.height*0.838);
-    pathScreen.lineTo(size.width * 0.727, size.height*0.838);
-    pathScreen.quadraticBezierTo(size.width*0.730, size.height*0.834, size.width*0.727, size.height*0.830);
-    pathScreen.lineTo(size.width * 0.645, size.height*0.830);
-    pathScreen.quadraticBezierTo(size.width*0.642, size.height*0.830, size.width*0.645, size.height*0.838);
+    var pathScreen = Path()
+    ..moveTo(size.width * 0.645, size.height*0.838)
+    ..lineTo(size.width * 0.727, size.height*0.838)
+    ..quadraticBezierTo(size.width*0.730, size.height*0.834, size.width*0.727, size.height*0.830)
+    ..lineTo(size.width * 0.645, size.height*0.830)
+    ..quadraticBezierTo(size.width*0.642, size.height*0.830, size.width*0.645, size.height*0.838);
     pathScreen.close();
     return pathScreen;
   }
@@ -247,12 +240,12 @@ class Speaker02 extends CustomClipper<Path> {
 class Speaker03 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var pathScreen = Path();
-    pathScreen.lineTo(size.width * 0.645, size.height*0.862);
-    pathScreen.lineTo(size.width * 0.727, size.height*0.862);
-    pathScreen.quadraticBezierTo(size.width*0.730, size.height*0.858, size.width*0.727, size.height*0.854);
-    pathScreen.lineTo(size.width * 0.645, size.height*0.854);
-    pathScreen.quadraticBezierTo(size.width*0.642, size.height*0.854, size.width*0.645, size.height*0.862);
+    var pathScreen = Path()
+    ..moveTo(size.width * 0.645, size.height*0.862)
+    ..lineTo(size.width * 0.727, size.height*0.862)
+    ..quadraticBezierTo(size.width*0.730, size.height*0.858, size.width*0.727, size.height*0.854)
+    ..lineTo(size.width * 0.645, size.height*0.854)
+    ..quadraticBezierTo(size.width*0.642, size.height*0.854, size.width*0.645, size.height*0.862);
     pathScreen.close();
     return pathScreen;
   }
@@ -267,12 +260,12 @@ class Speaker03 extends CustomClipper<Path> {
 class Speaker04 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var pathScreen = Path();
-    pathScreen.lineTo(size.width * 0.645, size.height*0.886);
-    pathScreen.lineTo(size.width * 0.727, size.height*0.886);
-    pathScreen.quadraticBezierTo(size.width*0.730, size.height*0.882, size.width*0.727, size.height*0.878);
-    pathScreen.lineTo(size.width * 0.645, size.height*0.878);
-    pathScreen.quadraticBezierTo(size.width*0.642, size.height*0.878, size.width*0.645, size.height*0.886);
+    var pathScreen = Path()
+    ..moveTo(size.width * 0.645, size.height*0.886)
+    ..lineTo(size.width * 0.727, size.height*0.886)
+    ..quadraticBezierTo(size.width*0.730, size.height*0.882, size.width*0.727, size.height*0.878)
+    ..lineTo(size.width * 0.645, size.height*0.878)
+    ..quadraticBezierTo(size.width*0.642, size.height*0.878, size.width*0.645, size.height*0.886);
     pathScreen.close();
     return pathScreen;
   }
@@ -286,12 +279,12 @@ class Speaker04 extends CustomClipper<Path> {
 class Speaker05 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var pathScreen = Path();
-    pathScreen.lineTo(size.width * 0.645, size.height*0.910);
-    pathScreen.lineTo(size.width * 0.727, size.height*0.910);
-    pathScreen.quadraticBezierTo(size.width*0.730, size.height*0.906, size.width*0.727, size.height*0.902);
-    pathScreen.lineTo(size.width * 0.645, size.height*0.902);
-    pathScreen.quadraticBezierTo(size.width*0.642, size.height*0.902, size.width*0.645, size.height*0.910);
+    var pathScreen = Path()
+    ..moveTo(size.width * 0.645, size.height*0.910)
+    ..lineTo(size.width * 0.727, size.height*0.910)
+    ..quadraticBezierTo(size.width*0.730, size.height*0.906, size.width*0.727, size.height*0.902)
+    ..lineTo(size.width * 0.645, size.height*0.902)
+    ..quadraticBezierTo(size.width*0.642, size.height*0.902, size.width*0.645, size.height*0.910);
     pathScreen.close();
     return pathScreen;
   }

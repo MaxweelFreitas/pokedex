@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/widgets/bottom_pocket.dart';
-import 'package:pokedex/widgets/tela_pocket.dart';
+import 'package:pokedex/widgets/screen_pocket.dart';
 import 'package:pokedex/widgets/top_pocket.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,27 +15,37 @@ class _HomePageState extends State<HomePage> {
     var size = MediaQuery.of(context).size.height;
     var tela = size - statusBarSize;
 
-
     return SafeArea(
       child: Container(
         color: Color(0XFF17410F),
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: tela * 0.26,
-              child: TopPocket(),
-            ),
-            Container(
-              color: Colors.blue,
-              height: tela * 0.44,
-              child: TelaPocket(),
-            ),
-            Container(
-              color: Colors.yellow,
-              height: tela * 0.30,
-              child: BottomPocket(),
-            ),
-          ],
+        child: Container(
+          decoration: BoxDecoration(
+              color: Color(0XFFE51D20),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20.0),
+                bottomRight: Radius.circular(20.0),
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
+              ),
+          ),
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: tela * 0.26,
+                child: TopPocket(),
+              ),
+              Container(
+                //color: Colors.blue,
+                height: tela * 0.44,
+                child: ScreenPocket(),
+              ),
+              Container(
+                //color: Colors.yellow,
+                height: tela * 0.30,
+                child: BottomPocket(),
+              ),
+            ],
+          ),
         ),
       ),
     );
