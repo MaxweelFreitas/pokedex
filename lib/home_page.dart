@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pokedex/consts/app_colors.dart';
 import 'package:pokedex/widgets/bottom_pocket.dart';
 import 'package:pokedex/widgets/screen_pocket.dart';
 import 'package:pokedex/widgets/top_pocket.dart';
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
         color: Colors.white,
         child: Container(
           decoration: BoxDecoration(
-              color: Color(0XFFE51D20),
+              color: AppColors.bgClrRed,//Color(0XFFE51D20),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20.0),
                 bottomRight: Radius.circular(20.0),
