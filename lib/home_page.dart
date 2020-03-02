@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pokedex/widgets/bottom_pocket.dart';
 import 'package:pokedex/widgets/screen_pocket.dart';
 import 'package:pokedex/widgets/top_pocket.dart';
@@ -9,15 +10,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        //statusBar
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark,
+        //NavigationBar
+        systemNavigationBarColor: Colors.white, //bottom bar color
+        systemNavigationBarIconBrightness: Brightness.dark, //bottom bar icons
+      ));
+
     var statusBarSize = MediaQuery.of(context).padding.top;
     var size = MediaQuery.of(context).size.height;
-    var tela = size - statusBarSize;
+    var screen = size - statusBarSize;
 
     return SafeArea(
       child: Container(
-        color: Color(0XFF17410F),
+        color: Colors.white,
         child: Container(
           decoration: BoxDecoration(
               color: Color(0XFFE51D20),
@@ -31,17 +42,22 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: <Widget>[
               Container(
-                height: tela * 0.26,
-                child: TopPocket(),
+                height: screen * 0.26,
+                child: TopPocket(
+
+                ),
               ),
               Container(
                 //color: Colors.blue,
-                height: tela * 0.44,
-                child: ScreenPocket(),
+                height: screen * 0.44,
+                child: ScreenPocket(
+                  color: Color(0XFF1E1E1E) //Initial color
+
+                ),
               ),
               Container(
                 //color: Colors.yellow,
-                height: tela * 0.30,
+                height: screen * 0.30,
                 child: BottomPocket(),
               ),
             ],

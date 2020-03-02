@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/consts/app_colors.dart';
 
 class TopPocket extends StatefulWidget {
+  TopPocket({
+    Key key,
+    this.light,
+  }):super(key:key);
+  final Color light;
   @override
   _TopPocketState createState() => _TopPocketState();
 }
@@ -15,11 +21,11 @@ class _TopPocketState extends State<TopPocket> {
           clipper: TopLayerPocket02 (),
           child: Container(
             width: double.infinity,
-            decoration: new BoxDecoration(
-              color: Color(0XFFA51A17),
-              borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(20.0),
-                topRight: const Radius.circular(20.0),
+            decoration: BoxDecoration(
+              color: AppColors.shadowClrRed,//Color(0XFFA51A17),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
               ),
             ),
           ),
@@ -29,11 +35,11 @@ class _TopPocketState extends State<TopPocket> {
           clipper: TopLayerPocket01 (),
           child: Container(
             width: double.infinity,
-            decoration: new BoxDecoration(
-                color: Color(0XFFCC1416),
-                borderRadius: new BorderRadius.only(
-                  topLeft: const Radius.circular(20.0),
-                  topRight: const Radius.circular(20.0),
+            decoration: BoxDecoration(
+                color: AppColors.frontClrRed,//Color(0XFFCC1416),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
                 ),
             ),
           ),
@@ -43,11 +49,11 @@ class _TopPocketState extends State<TopPocket> {
           clipper: TopLayerPocket03 (),
           child: Container(
             width: double.infinity,
-            decoration: new BoxDecoration(
-              color: Color(0XFFA51A17),
-              borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(20.0),
-                topRight: const Radius.circular(20.0),
+            decoration: BoxDecoration(
+              color: AppColors.shadowClrRed,//Color(0XFFA51A17),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
               ),
             ),
           ),
@@ -124,7 +130,9 @@ class TopLayerPocket01 extends CustomClipper<Path> {
   }
   @override
   // ignore: missing_return
-  bool shouldReclip(CustomClipper<Path> oldClipper) {}
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return oldClipper != this;
+  }
 }
 
 class TopLayerPocket02 extends CustomClipper<Path> {
@@ -144,8 +152,7 @@ class TopLayerPocket02 extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -164,8 +171,7 @@ class TopLayerPocket03 extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -175,7 +181,7 @@ class NotifyLayer00 extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFF9CD3F2);
+    paint.color = AppColors.ledShineClrBlue;//Color(0XFF9CD3F2);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 8.0, paint);
   }
@@ -190,7 +196,7 @@ class NotifyLayer01 extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFF4182C4);
+    paint.color = AppColors.ledClrBlue;//Color(0XFF4182C4);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 40.0, paint);
   }
@@ -205,7 +211,7 @@ class NotifyLayer02 extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFFABAAA8);
+    paint.color = AppColors.borderLedClrGrey;//Color(0XFFABAAA8);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 50.0, paint);
   }
@@ -220,7 +226,7 @@ class StatusRed extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFFE81736);
+    paint.color = AppColors.ledClrRed;//Color(0XFFE81736);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 8.0, paint);
   }
@@ -235,7 +241,7 @@ class StatusYellow extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFFFFF29A);
+    paint.color = AppColors.ledClrYellow;//Color(0XFFFFF29A);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 8.0, paint);
   }
@@ -250,11 +256,10 @@ class StatusGreen extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFF4E9656);
+    paint.color = AppColors.ledClrGreen;//Color(0XFF4E9656);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 8.0, paint);
   }
-
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {}
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/consts/app_colors.dart';
 
 class BottomPocket extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: BottomHinge (),
           child: Container(
-            color: Color(0XFFCC1416),
+            color: AppColors.frontClrRed,//Color(0XFFCC1416),
             width: double.infinity,
             //color: ,
           ),
@@ -19,7 +20,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: BottomHingeShadow (),
           child: Container(
-            color: Color(0XFFA51A17),
+            color: AppColors.shadowClrRed,//Color(0XFFA51A17),
             width: double.infinity,
             //color: ,
           ),
@@ -28,7 +29,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: SelectBtn (),
           child: Container(
-            color: Color(0XFFA51A17),
+            color: AppColors.shadowClrRed,//Color(0XFFA51A17),
             width: double.infinity,
             //color: ,
           ),
@@ -37,7 +38,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: StartBtn (),
           child: Container(
-            color: Color(0XFF0F6594),
+            color: AppColors.btnStartClrBlue,//Color(0XFF0F6594),
             width: double.infinity,
             //color: ,
           ),
@@ -46,7 +47,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: ArrowShadowX (),
           child: Container(
-            color: Color(0XFFA51A17),
+            color: AppColors.shadowClrRed,//Color(0XFFA51A17),
             width: double.infinity,
             //color: ,
           ),
@@ -55,7 +56,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: ArrowShadowY (),
           child: Container(
-            color: Color(0XFFA51A17),
+            color: AppColors.shadowClrRed,//Color(0XFFA51A17),
             width: double.infinity,
             //color: ,
           ),
@@ -64,7 +65,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: ArrowUp (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.directionalClrBlack,
             width: double.infinity,
           ),
         ),
@@ -72,7 +73,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: ArrowDown (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.directionalClrBlack,
             width: double.infinity,
           ),
         ),
@@ -80,7 +81,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: ArrowCenter (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.directionalClrBlack,
             width: double.infinity,
 
           ),
@@ -89,7 +90,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: ArrowLeft (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.directionalClrBlack,
             width: double.infinity,
             //color: ,
           ),
@@ -98,7 +99,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: ArrowRight (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.directionalClrBlack,
             width: double.infinity,
             //color: ,
           ),
@@ -107,7 +108,7 @@ class BottomPocket extends StatelessWidget {
         ClipPath(
           clipper: GreenBtn (),
           child: Container(
-            color: Color(0XFF49B156),
+            color: AppColors.btnClrGreen,//Color(0XFF49B156),
             width: double.infinity,
             //color: ,
           ),
@@ -126,8 +127,6 @@ class BottomPocket extends StatelessWidget {
   }
 }
 
-
-
 class BottomHinge extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -143,8 +142,7 @@ class BottomHinge extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -162,8 +160,7 @@ class BottomHingeShadow extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -181,8 +178,7 @@ class SelectBtn extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -201,8 +197,7 @@ class StartBtn extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -220,8 +215,7 @@ class ArrowUp extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -239,8 +233,7 @@ class ArrowDown extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -260,8 +253,7 @@ class ArrowCenter extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -279,8 +271,7 @@ class ArrowLeft extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -298,8 +289,7 @@ class ArrowRight extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -317,8 +307,7 @@ class ArrowShadowX extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -336,8 +325,7 @@ class ArrowShadowY extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -359,7 +347,9 @@ class GreenBtn extends CustomClipper<Path> {
   }
   @override
   // ignore: missing_return
-  bool shouldReclip(CustomClipper<Path> oldClipper) {}
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return oldClipper != this;
+  }
 }
 
 class Btn extends CustomPainter{
@@ -368,7 +358,7 @@ class Btn extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFF1E1E1E);
+    paint.color = AppColors.btnClrBlack;//Color(0XFF1E1E1E);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 26.0, paint);
   }

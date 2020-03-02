@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/consts/app_colors.dart';
 
 class ScreenPocket extends StatefulWidget {
   ScreenPocket({
     Key key,
-    this.img
+    this.img,
+    this.color,
   }):super(key:key);
   final Widget img;
+  final Color color;
   @override
   _ScreenPocketState createState() => _ScreenPocketState();
 }
@@ -18,13 +21,13 @@ class _ScreenPocketState extends State<ScreenPocket> {
       children: [
         Container(
           width: double.infinity,
-          color: Color(0XFFE51D20),
+          color: AppColors.bgClrRed,//Color(0XFFE51D20),
         ),
 
         ClipPath(
           clipper: Background (),
           child: Container(
-            color: Color(0XFFCC1416),
+            color: AppColors.frontClrRed,//Color(0XFFCC1416),
             width: double.infinity,
             //color: ,
           ),
@@ -33,7 +36,7 @@ class _ScreenPocketState extends State<ScreenPocket> {
         ClipPath(
           clipper: ScreenBorder (),
           child: Container(
-            color: Color(0XFFA9A9A9),
+            color: AppColors.scrBorderClrGrey,//Color(0XFFA9A9A9),
             width: double.infinity,
             //color: ,
           ),
@@ -42,17 +45,16 @@ class _ScreenPocketState extends State<ScreenPocket> {
         ClipPath(
           clipper: Screen (),
           child: Container(
-            color: Color(0XFF1E1E1E),
+            color: widget.color,
             width: double.infinity,
             child: widget.img,
-            //color: ,
           ),
         ),
 
         ClipPath(
           clipper: Speaker01 (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.speakerClrBlack,
             width: double.infinity,
             child: widget.img,
             //color: ,
@@ -62,7 +64,7 @@ class _ScreenPocketState extends State<ScreenPocket> {
         ClipPath(
           clipper: Speaker02 (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.speakerClrBlack,
             width: double.infinity,
             child: widget.img,
             //color: ,
@@ -72,7 +74,7 @@ class _ScreenPocketState extends State<ScreenPocket> {
         ClipPath(
           clipper: Speaker03 (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.speakerClrBlack,
             width: double.infinity,
             child: widget.img,
             //color: ,
@@ -82,7 +84,7 @@ class _ScreenPocketState extends State<ScreenPocket> {
         ClipPath(
           clipper: Speaker04 (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.speakerClrBlack,
             width: double.infinity,
             child: widget.img,
             //color: ,
@@ -92,7 +94,7 @@ class _ScreenPocketState extends State<ScreenPocket> {
         ClipPath(
           clipper: Speaker05 (),
           child: Container(
-            color: Colors.black,
+            color: AppColors.speakerClrBlack,
             width: double.infinity,
             child: widget.img,
             //color: ,
@@ -117,7 +119,6 @@ class _ScreenPocketState extends State<ScreenPocket> {
           ),
         ),
 
-
         Positioned(
           //alignment: Alignment.center,
           left: size.width*0.245,
@@ -127,6 +128,16 @@ class _ScreenPocketState extends State<ScreenPocket> {
           ),
         ),
 
+//        Align(
+//          alignment: Alignment.center,
+//          child: Container(
+//            color: Colors.pink,
+//            height: size.height*0.1,
+//            width: size.width*0.5,
+//
+//          ),
+//        ),
+
       ],
     );
   }
@@ -135,21 +146,18 @@ class _ScreenPocketState extends State<ScreenPocket> {
 class Background extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var pathTela = Path();
-    pathTela.moveTo(size.width*0.91, 0);
-    pathTela.lineTo(size.width*0.91, size.height);
-    pathTela.lineTo(size.width, size.height);
-    pathTela.lineTo(size.width, 0);
-
-
+    var pathTela = Path()
+    ..moveTo(size.width*0.91, 0)
+    ..lineTo(size.width*0.91, size.height)
+    ..lineTo(size.width, size.height)
+    ..lineTo(size.width, 0);
     pathTela.close();
     return pathTela;
   }
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -171,8 +179,7 @@ class ScreenBorder extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -194,8 +201,7 @@ class Screen extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -213,8 +219,7 @@ class Speaker01 extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -232,8 +237,7 @@ class Speaker02 extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -251,8 +255,7 @@ class Speaker03 extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 
 }
@@ -271,8 +274,7 @@ class Speaker04 extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -290,8 +292,7 @@ class Speaker05 extends CustomClipper<Path> {
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    throw UnimplementedError();
+    return oldClipper != this;
   }
 }
 
@@ -301,7 +302,7 @@ class BtnSmall01 extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFFE51D20);
+    paint.color = AppColors.bgClrRed;//Color(0XFFE51D20);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 6.0, paint);
     print(size.height);
@@ -317,7 +318,7 @@ class BtnSmall02 extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFFE51D20);
+    paint.color = AppColors.bgClrRed;//Color(0XFFE51D20);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 6.0, paint);
     print(size.height);
@@ -333,7 +334,7 @@ class BtnBig extends CustomPainter{
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = Color(0XFFE51D20);
+    paint.color = AppColors.bgClrRed;//Color(0XFFE51D20);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 10.0, paint);
     print(size.height);
