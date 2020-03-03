@@ -14,6 +14,10 @@ class TopPocket extends StatefulWidget {
 class _TopPocketState extends State<TopPocket> {
   @override
   Widget build(BuildContext context) {
+
+    print('object');
+    print(widget.light);
+
     var size = MediaQuery.of(context).size;
     return Stack(
       children: [
@@ -71,7 +75,9 @@ class _TopPocketState extends State<TopPocket> {
           top: size.height*0.12,
           left: size.width*0.18,
           child: CustomPaint(
-            painter: NotifyLayer01(),
+            painter: NotifyLayer01(
+              ledColor: widget.light,
+            ),
           ),
         ),
 
@@ -191,16 +197,17 @@ class NotifyLayer00 extends CustomPainter{
 }
 
 class NotifyLayer01 extends CustomPainter{
+  final Color ledColor;
+  NotifyLayer01({this.ledColor});
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
     var rect = Rect.fromLTWH(0, 0, size.width, size.height);
     canvas.drawRect(rect, paint);
-    paint.color = AppColors.ledClrBlue;//Color(0XFF4182C4);
+    paint.color = ledColor == null ? AppColors.ledClrBlue : ledColor;//ledColor;//Color(0XFF4182C4);
     var center = Offset(size.width / 2, size.height / 2);
     canvas.drawCircle(center, 40.0, paint);
   }
-
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {}
 }

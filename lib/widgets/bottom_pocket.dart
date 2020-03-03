@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/consts/app_colors.dart';
 
-class BottomPocket extends StatelessWidget {
+class BottomPocket extends StatefulWidget {
+  final Widget btnBlk;
+  final Widget btnGreen;
+  final Widget btnSelect;
+  final Widget btnStart;
+  final Widget arrowUp;
+  final Widget arrowDown;
+  final Widget arrowLeft;
+  final Widget arrowRight;
+  BottomPocket({
+    Key key,
+    this.btnBlk,
+    this.btnGreen,
+    this.btnSelect,
+    this.btnStart,
+    this.arrowUp,
+    this.arrowDown,
+    this.arrowLeft,
+    this.arrowRight,
+  }):super(key:key);
+
+  @override
+  _BottomPocketState createState() => _BottomPocketState();
+}
+
+class _BottomPocketState extends State<BottomPocket> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -21,24 +46,6 @@ class BottomPocket extends StatelessWidget {
           clipper: BottomHingeShadow (),
           child: Container(
             color: AppColors.shadowClrRed,//Color(0XFFA51A17),
-            width: double.infinity,
-            //color: ,
-          ),
-        ),
-
-        ClipPath(
-          clipper: SelectBtn (),
-          child: Container(
-            color: AppColors.shadowClrRed,//Color(0XFFA51A17),
-            width: double.infinity,
-            //color: ,
-          ),
-        ),
-
-        ClipPath(
-          clipper: StartBtn (),
-          child: Container(
-            color: AppColors.btnStartClrBlue,//Color(0XFF0F6594),
             width: double.infinity,
             //color: ,
           ),
@@ -105,23 +112,85 @@ class BottomPocket extends StatelessWidget {
           ),
         ),
 
-        ClipPath(
-          clipper: GreenBtn (),
+        Positioned(
+          left: size.width*0.684,
+          top: size.height*0.033,
           child: Container(
-            color: AppColors.btnClrGreen,//Color(0XFF49B156),
-            width: double.infinity,
-            //color: ,
+            height: size.width*0.1,
+            width: size.width*0.09,
+            child: widget.arrowUp,
           ),
         ),
 
         Positioned(
-          left: size.width*0.15,
-          top: size.height*0.087,
-          child: CustomPaint(
-            painter: Btn(),
+          left: size.width*0.684,
+          top: size.height*0.150,
+          child: Container(
+            height: size.width*0.1,
+            width: size.width*0.09,
+            child: widget.arrowDown,
           ),
         ),
 
+        Positioned(
+          left: size.width*0.585,
+          top: size.height*0.091,
+          child: Container(
+            height: size.width*0.1,
+            width: size.width*0.1,
+            child: widget.arrowLeft,
+          ),
+        ),
+
+        Positioned(
+          left: size.width*0.774,
+          top: size.height*0.091,
+          child: Container(
+            height: size.width*0.1,
+            width: size.width*0.1,
+            child: widget.arrowRight,
+          ),
+        ),
+
+        Positioned(
+          left: size.width*0.265,
+          top: size.height*0.095,
+          child: Container(
+            height: size.width*0.155,
+            width: size.width*0.264,
+            child: widget.btnGreen,
+          ),
+        ),
+
+        Positioned(
+          left: size.width*0.27,
+          top: size.height*0.018,
+          child: Container(
+            height: size.width*0.025,
+            width: size.width*0.10,
+            child: widget.btnSelect,
+          ),
+        ),
+
+        Positioned(
+          left: size.width*0.45,
+          top: size.height*0.018,
+          child: Container(
+            height: size.width*0.025,
+            width: size.width*0.10,
+            child: widget.btnStart,
+          ),
+        ),
+
+        Positioned(
+          left: size.width*0.0855,
+          top: size.height*0.0475,
+          child: Container(
+            height: size.width*0.13,
+            width: size.width*0.13,
+            child: widget.btnBlk,
+          ),
+        ),
       ],
     );
   }
@@ -155,43 +224,6 @@ class BottomHingeShadow extends CustomClipper<Path> {
     ..lineTo(size.width, size.height*0.665)
     ..lineTo(size.width, size.height*0.637)
     ..lineTo(size.width * 0.91, size.height*0.637);
-    pathControllers.close();
-    return pathControllers;
-  }
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return oldClipper != this;
-  }
-}
-
-class SelectBtn extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var pathControllers = Path()
-    ..moveTo(size.width * 0.272, size.height*0.063)
-    ..lineTo(size.width * 0.272, size.height*0.110)
-    ..lineTo(size.width * 0.370, size.height*0.110)
-    ..lineTo(size.width * 0.370, size.height*0.063)
-    ..lineTo(size.width * 0.272, size.height*0.063);
-    pathControllers.close();
-    return pathControllers;
-  }
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return oldClipper != this;
-  }
-}
-
-class StartBtn extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var pathControllers = Path()
-    //aumenta x em 179 em todas as width
-    ..moveTo(size.width * 0.451, size.height*0.063)
-    ..lineTo(size.width * 0.451, size.height*0.110)
-    ..lineTo(size.width * 0.549, size.height*0.110)
-    ..lineTo(size.width * 0.549, size.height*0.063)
-    ..lineTo(size.width * 0.451, size.height*0.063);
     pathControllers.close();
     return pathControllers;
   }
@@ -327,42 +359,4 @@ class ArrowShadowY extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return oldClipper != this;
   }
-}
-
-class GreenBtn extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var pathControllers = Path()
-      ..moveTo(size.width * 0.265, size.height*0.439)
-      ..lineTo(size.width*0.265, size.height*0.540)
-      ..quadraticBezierTo(size.width*0.265, size.height*0.635, size.width*0.314, size.height*0.651)
-      ..lineTo(size.width*0.478, size.height*0.651)
-      ..quadraticBezierTo(size.width*0.527, size.height*0.651, size.width*0.527, size.height*0.540)
-      ..lineTo(size.width*0.527, size.height*0.439)
-      ..quadraticBezierTo(size.width*0.527, size.height*0.327, size.width*0.478, size.height*0.327)
-      ..lineTo(size.width*0.314, size.height*0.327)
-      ..quadraticBezierTo(size.width*0.265, size.height*0.327, size.width*0.265, size.height*0.439);
-    pathControllers.close();
-    return pathControllers;
-  }
-  @override
-  // ignore: missing_return
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return oldClipper != this;
-  }
-}
-
-class Btn extends CustomPainter{
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint();
-    var rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    canvas.drawRect(rect, paint);
-    paint.color = AppColors.btnClrBlack;//Color(0XFF1E1E1E);
-    var center = Offset(size.width / 2, size.height / 2);
-    canvas.drawCircle(center, 26.0, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {}
 }
